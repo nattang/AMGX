@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//#include "cuda_runtime.h"
+#include "cuda_runtime.h"
 
 /* CUDA error macro */
 #define CUDA_SAFE_CALL(call) do {                                 \
@@ -332,11 +332,6 @@ int main(int argc, const char **argv)
     /* switch on internal error handling (no need to use AMGX_SAFE_CALL after this point) */
     //AMGX_SAFE_CALL(AMGX_config_add_parameters(&cfg, "exception_handling=1"));
     /* create resources, matrix, vector and solver */
-    AMGX_resources_create_simple(&rsrc, cfg);
-    AMGX_matrix_create(&A, rsrc, mode);
-    AMGX_vector_create(&x, rsrc, mode);
-    AMGX_vector_create(&b, rsrc, mode);
-    AMGX_solver_create(&solver, rsrc, mode, cfg);
 
     /* read the input system: matrix [and rhs & solution]
        Please refer to AMGX_read_system description in the AMGX_Reference.pdf

@@ -21,6 +21,17 @@ set(AMGX_INCLUDES ${THRUST_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 target_include_directories( amgx_capi PUBLIC ${AMGX_INCLUDES})
 target_link_libraries ( amgx_capi ${dyn_libs} )
 
+include(FetchContent)
+FetchContent_Declare(
+    mmio
+    GIT_REPOSITORY https://github.com/dendisuhubdy/mmio.git
+    GIT_TAG        master
+)
+FetchContent_MakeAvailable(mmio)
+add_library(mmio_lib STATIC ${mmio_SOURCE_DIR}/mmio.c)
+set_target_properties(mmio_lib PROPERTIES LINKER_LANGUAGE C)
+target_include_directories(mmio_lib PUBLIC ${mmio_SOURCE_DIR})
+
 IF(WIN32)
     IF(MSVC)
       set_source_files_properties( amgx_capi.c PROPERTIES LANGUAGE CXX)
@@ -44,11 +55,13 @@ set_target_properties(generate_poisson7_dist_renum PROPERTIES LINK_FLAGS "")
 target_include_directories(generate_poisson7_dist_renum PUBLIC ${AMGX_INCLUDES})
 set_target_properties(generate_poisson7_dist_renum PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
 
+
 if(MPI_FOUND)
     add_executable(amgx_mpi_capi amgx_mpi_capi.c )
     add_executable(amgx_mpi_capi_agg amgx_mpi_capi_agg.c )
     add_executable(amgx_mpi_capi_cla amgx_mpi_capi_cla.c )
     add_executable(amgx_mpi_poisson7 amgx_mpi_poisson7.c )
+    add_executable(amgx_rxmesh amgx_rxmesh.c )
     IF(WIN32)
       IF(MSVC)
         set_source_files_properties( amgx_mpi_capi.c PROPERTIES LANGUAGE CXX)
@@ -66,6 +79,10 @@ if(MPI_FOUND)
         set_source_files_properties(amgx_mpi_poisson7.c PROPERTIES LANGUAGE CXX)
         set_target_properties(amgx_mpi_poisson7 PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}")
         target_link_libraries(amgx_mpi_poisson7  ${MPI_C_LIBRARIES} ${dyn_libs})
+
+        set_source_files_properties(amgx_rxmesh.c PROPERTIES LANGUAGE CXX)
+        set_target_properties(amgx_rxmesh PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}")
+        target_link_libraries( amgx_rxmesh ${MPI_C_LIBRARIES} ${dyn_libs} mmio_lib)
       ENDIF(MSVC)
     ELSE(WIN32)
 
@@ -85,6 +102,10 @@ if(MPI_FOUND)
       set_target_properties ( amgx_mpi_poisson7 PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}")
       target_link_libraries( amgx_mpi_poisson7 amgxsh ${MPI_C_LIBRARIES} ${dyn_libs})
 
+      SET_SOURCE_FILES_PROPERTIES( amgx_rxmesh.c PROPERTIES COMPILE_FLAGS -std=c99 )
+      set_target_properties ( amgx_rxmesh PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}")
+      target_link_libraries( amgx_rxmesh amgxsh ${MPI_C_LIBRARIES} ${dyn_libs} mmio_lib)
+
     ENDIF(WIN32) 
     
     if(MPI_COMPILE_FLAGS)
@@ -92,23 +113,27 @@ if(MPI_FOUND)
       set_target_properties(amgx_mpi_capi_agg PROPERTIES COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
       set_target_properties(amgx_mpi_capi_cla PROPERTIES COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
       set_target_properties(amgx_mpi_poisson7 PROPERTIES COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
+      set_target_properties(amgx_rxmesh PROPERTIES COMPILE_FLAGS "${MPI_COMPILE_FLAGS}")
     endif(MPI_COMPILE_FLAGS)
 
     target_include_directories(amgx_mpi_capi PUBLIC ${AMGX_INCLUDES})
     target_include_directories(amgx_mpi_capi_agg PUBLIC ${AMGX_INCLUDES})
     target_include_directories(amgx_mpi_capi_cla PUBLIC ${AMGX_INCLUDES})
     target_include_directories(amgx_mpi_poisson7 PUBLIC ${AMGX_INCLUDES})
+    target_include_directories(amgx_rxmesh PUBLIC ${AMGX_INCLUDES})
 
     set_target_properties(amgx_mpi_capi PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
     set_target_properties(amgx_mpi_capi_agg PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
     set_target_properties(amgx_mpi_capi_cla PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
     set_target_properties(amgx_mpi_poisson7 PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
+    set_target_properties(amgx_rxmesh PROPERTIES CUDA_ARCHITECTURES "${CUDA_ARCH}")
 
 endif(MPI_FOUND)
 
 if(MPI_FOUND)
-  install(TARGETS amgx_mpi_capi amgx_mpi_capi_agg amgx_mpi_capi_cla amgx_mpi_poisson7 DESTINATION "lib/examples")
+  install(TARGETS amgx_mpi_capi amgx_mpi_capi_agg amgx_mpi_capi_cla amgx_mpi_poisson7 amgx_rxmesh DESTINATION "lib/examples")
 endif(MPI_FOUND)
+
 
 add_subdirectory(eigen_examples)
 
