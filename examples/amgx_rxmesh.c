@@ -354,11 +354,11 @@ int main(int argc, char **argv)
                     }
                 }
             }
-            printf("read column \n");
+            // printf("read column \n");
         }
 
         fclose(f);
-        printf("done reading b\n");
+        // printf("done reading b\n");
         M = B_M;
         N = B_N;
     } 
@@ -373,7 +373,7 @@ int main(int argc, char **argv)
 
         mm_read_banner(f, &matcode);
         mm_read_mtx_array_size(f, &X_M, &X_N);
-        printf("Number of rows: %d, Number of cols: %d\n", X_M, X_N);
+        // printf("Number of rows: %d, Number of cols: %d\n", X_M, X_N);
         if ((X_M != M) || (X_N != N))
         {
             fprintf(stderr, "incompatible vector shape for x and b\n");
@@ -410,10 +410,10 @@ int main(int argc, char **argv)
                     }
                 }
             }
-            printf("uploaded x column");
+            // printf("uploaded x column");
         }
         fclose(f);
-        printf("done reading x\n");
+        // printf("done reading x\n");
     }
 
     pidx = findParamIndex(argv, argc, "-cd");
@@ -501,6 +501,7 @@ int main(int argc, char **argv)
     }
     // populates result matrix for comparison
     void *result_host[3];
+    AMGX_solver_setup(solver, A);
     for (int r = 0; r < nrepeats; ++r)
     {
         for (int i = 0; i < N; i++) {
@@ -509,11 +510,10 @@ int main(int argc, char **argv)
             free(b_h[i]);
              /* solver setup */
             // MPI barrier for stability (should be removed in practice to maximize performance)
-            MPI_Barrier(amgx_mpi_comm);
-            AMGX_solver_setup(solver, A);
+            // MPI_Barrier(amgx_mpi_comm);
             /* solver solve */
             // MPI barrier for stability (should be removed in practice to maximize performance)
-            MPI_Barrier(amgx_mpi_comm);
+            // MPI_Barrier(amgx_mpi_comm);
             AMGX_solver_solve(solver, b, x);
 
             AMGX_solver_get_status(solver, &status);

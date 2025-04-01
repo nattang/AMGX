@@ -3,14 +3,11 @@ cd ../build
 make amgx_rxmesh -j16
 
 #output directory containing A.mtx, B.mtx, C.mtx
-OUTPUT_DIR="../../RXMesh-AMGX/output/dragon/"
-A_MATRIX="$OUTPUT_DIR/A.mtx"
-B_MATRIX="$OUTPUT_DIR/B.mtx"
-X_MATRIX="$OUTPUT_DIR/X.mtx"
+OUTPUT_DIR="../../RXMesh-AMGX/output/"
 
 #if not specified or found, input
 if [ ! -d "$OUTPUT_DIR" ]; then
-    echo "Output DIR not found at  $OUTPUT_DIR not found"
+    echo "Output DIR not found at $OUTPUT_DIR"
     exit 1
 fi
 
@@ -20,5 +17,21 @@ if [ ! -f "$CONFIG_PATH" ]; then
     exit 1
 fi
 
-echo "Running amgx_rxmesh..."
-./examples/amgx_rxmesh -c "$CONFIG_PATH" -m "$A_MATRIX" -B "$B_MATRIX" -X "$X_MATRIX"
+for dir in "$OUTPUT_DIR"*/; do
+    dir_name=$(basename "$dir")
+    dir_name=$(echo "$dir_name" | xargs)
+
+
+    A_MATRIX="$dir/A.mtx"
+    B_MATRIX="$dir/B.mtx"
+    X_MATRIX="$dir/X.mtx"
+
+    if [ ! -f "$A_MATRIX" ] || [ ! -f "$B_MATRIX" ] || [ ! -f "$X_MATRIX" ]; then
+        echo "Skipping $dir_name - Doesn't contain necessary .mtx files"
+        continue
+    fi
+
+    echo "Running amgx_rxmesh for $dir_name..."
+    ./examples/amgx_rxmesh -c "$CONFIG_PATH" -m "$A_MATRIX" -B "$B_MATRIX" -X "$X_MATRIX"
+    echo "-------------------------------"
+done
