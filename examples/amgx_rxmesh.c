@@ -554,9 +554,9 @@ int main(int argc, char **argv)
     /* example of how to get (the local part of) the solution */
 
     // check for equality
+    double error = 0.0;
     if (((pidx = findParamIndex(argv, argc, "-B")) != -1) && ((pidx = findParamIndex(argv, argc, "-X")) != -1)) {
         printf("calculating error \n");
-        double error = 0.0;
         for (int i = 0; i < 3; i ++) {
             if (sizeof_v_val == sizeof(double)) {
                 double *result_host_d = (double *)result_host[i];
@@ -576,12 +576,12 @@ int main(int argc, char **argv)
                 }
             }
 
-            printf("error: %f\n", error);
-
             free(result_host[i]);
             free(x_h[i]);
         }
     }
+
+    printf("Total error between AMGX and RXMesh: %f\n", error);
 
     /* destroy resources, matrix, vector and solver */
     AMGX_solver_destroy(solver);

@@ -1,0 +1,263 @@
+
+Running amgx_rxmesh for bumpy-cube...
+Matrix A is scalar and has 19970 rows
+
+Total Time: 0.0437094
+    setup: 0.0245536 s
+    solve: 0.0191558 s
+    solve(per iteration): 0.00638528 s
+ 
+Total Time: 0.0258143
+    setup: 0.0245536 s
+    solve: 0.0012607 s
+    solve(per iteration): 0.000420235 s
+
+Total Time: 0.0256765
+    setup: 0.0245536 s
+    solve: 0.00112294 s
+    solve(per iteration): 0.000374315 s
+calculating error 
+error: 0.008916
+error: 0.022390
+error: 0.035610
+-------------------------------
+Running amgx_rxmesh for bunnyhead...
+Matrix A is scalar and has 1550 rows
+
+Total Time: 0.0388972
+    setup: 0.0284273 s
+    solve: 0.01047 s
+    solve(per iteration): 0.00130874 s
+
+Total Time: 0.0302009
+    setup: 0.0284273 s
+    solve: 0.00177366 s
+    solve(per iteration): 0.000221708 s
+
+Total Time: 0.0302271
+    setup: 0.0284273 s
+    solve: 0.00179984 s
+    solve(per iteration): 0.00022498 s
+calculating error 
+error: 1492.989376
+error: 5350.439143
+error: 8192.810553
+-------------------------------
+Running amgx_rxmesh for cloth...
+Matrix A is scalar and has 900 rows
+
+Total Time: 0.0347621
+    setup: 0.0244183 s
+    solve: 0.0103437 s
+    solve(per iteration): 0.0011493 s
+
+Total Time: 0.0263851
+    setup: 0.0244183 s
+    solve: 0.00196682 s
+    solve(per iteration): 0.000196682 s
+
+Total Time: 0.0262006
+    setup: 0.0244183 s
+    solve: 0.0017823 s
+    solve(per iteration): 0.000198034 s
+calculating error 
+error: 4580136615566.122070
+error: 79628882973783.546875
+error: 79628882973783.546875
+-------------------------------
+Running amgx_rxmesh for cube...
+Matrix A is scalar and has 8 rows
+
+Total Time: 0.0184204
+    setup: 0.0099697 s
+    solve: 0.00845072 s
+    solve(per iteration): 0.00845072 s
+
+Total Time: 0.0100793
+    setup: 0.0099697 s
+    solve: 0.000109632 s
+    solve(per iteration): 0.000109632 s
+
+Total Time: 0.010067
+    setup: 0.0099697 s
+    solve: 9.7312e-05 s
+    solve(per iteration): 9.7312e-05 s
+calculating error 
+error: 0.000000
+error: 0.000000
+error: 0.000000
+-------------------------------
+Running amgx_rxmesh for diamond...
+Matrix A is scalar and has 4 rows
+
+Total Time: 0.0130157
+    setup: 0.00615219 s
+    solve: 0.00686355 s
+    solve(per iteration): 0.00686355 s
+
+Total Time: 0.00626035
+    setup: 0.00615219 s
+    solve: 0.00010816 s
+    solve(per iteration): 0.00010816 s
+
+Total Time: 0.00624861
+    setup: 0.00615219 s
+    solve: 9.6416e-05 s
+    solve(per iteration): 9.6416e-05 s
+calculating error 
+error: 0.000000
+error: 0.000000
+error: 0.000000
+-------------------------------
+Running amgx_rxmesh for dragon...
+Matrix A is scalar and has 10000 rows
+
+Total Time: 0.036536
+    setup: 0.0267176 s
+    solve: 0.00981846 s
+    solve(per iteration): 0.000981846 s
+
+Total Time: 0.029898
+    setup: 0.0267176 s
+    solve: 0.00318038 s
+    solve(per iteration): 0.000318038 s
+
+Total Time: 0.0299041
+    setup: 0.0267176 s
+    solve: 0.0031865 s
+    solve(per iteration): 0.00031865 s
+calculating error 
+error: 0.000442
+error: 0.001659
+error: 0.003443
+-------------------------------
+Running amgx_rxmesh for el_topo_sphere_1280...
+Matrix A is scalar and has 642 rows
+
+Total Time: 0.0449121
+    setup: 0.0228547 s
+    solve: 0.0220574 s
+    solve(per iteration): 0.00735247 s
+
+Total Time: 0.0234346
+    setup: 0.0228547 s
+    solve: 0.000579904 s
+    solve(per iteration): 0.000193301 s
+
+Total Time: 0.0234304
+    setup: 0.0228547 s
+    solve: 0.000575712 s
+    solve(per iteration): 0.000191904 s
+calculating error 
+error: 0.000029
+error: 0.000085
+error: 0.000120
+-------------------------------
+Running amgx_rxmesh for plane...
+Matrix A is scalar and has 9 rows
+
+Total Time: 0.0120018
+    setup: 0.00586451 s
+    solve: 0.00613731 s
+    solve(per iteration): 0.00613731 s
+
+Total Time: 0.00597926
+    setup: 0.00586451 s
+    solve: 0.000114752 s
+    solve(per iteration): 0.000114752 s
+
+Total Time: 0.00595741
+    setup: 0.00586451 s
+    solve: 9.2896e-05 s
+    solve(per iteration): 9.2896e-05 s
+calculating error 
+error: 0.008008
+error: 0.016015
+error: 0.016015
+-------------------------------
+Running amgx_rxmesh for plane_5...
+Matrix A is scalar and has 25 rows
+
+Total Time: 0.012803
+    setup: 0.00632323 s
+    solve: 0.00647981 s
+    solve(per iteration): 0.00647981 s
+
+Total Time: 0.00643386
+    setup: 0.00632323 s
+    solve: 0.000110624 s
+    solve(per iteration): 0.000110624 s
+
+Total Time: 0.00642944
+    setup: 0.00632323 s
+    solve: 0.000106208 s
+    solve(per iteration): 0.000106208 s
+calculating error 
+error: 0.029635
+error: 0.065074
+error: 0.065074
+-------------------------------
+
+Running amgx_rxmesh for sphere1...
+Matrix A is scalar and has 26 rows
+
+Total Time: 0.0133309
+    setup: 0.00617062 s
+    solve: 0.00716032 s
+    solve(per iteration): 0.00716032 s
+Total Time: 0.00628406
+    setup: 0.00617062 s
+    solve: 0.00011344 s
+    solve(per iteration): 0.00011344 s
+Total Time: 0.00627133
+    setup: 0.00617062 s
+    solve: 0.000100704 s
+    solve(per iteration): 0.000100704 s
+calculating error 
+error: 0.000001
+error: 0.000002
+error: 0.000003
+-------------------------------
+Running amgx_rxmesh for sphere3...
+Matrix A is scalar and has 386 rows
+
+Total Time: 0.0404156
+    setup: 0.0184115 s
+    solve: 0.022004 s
+    solve(per iteration): 0.00733468 s
+
+Total Time: 0.0189217
+    setup: 0.0184115 s
+    solve: 0.000510144 s
+    solve(per iteration): 0.000170048 s
+
+Total Time: 0.0189141
+    setup: 0.0184115 s
+    solve: 0.00050256 s
+    solve(per iteration): 0.00016752 s
+calculating error 
+error: 0.000677
+error: 0.001424
+error: 0.002116
+-------------------------------
+Running amgx_rxmesh for torus...
+Matrix A is scalar and has 4608 rows
+
+Total Time: 0.0419853
+    setup: 0.0259196 s
+    solve: 0.0160658 s
+    solve(per iteration): 0.00401645 s
+
+Total Time: 0.0273464
+    setup: 0.0259196 s
+    solve: 0.00142682 s
+    solve(per iteration): 0.000285363 s
+
+Total Time: 0.0273416
+    setup: 0.0259196 s
+    solve: 0.00142205 s
+    solve(per iteration): 0.00028441 s
+calculating error 
+error: 0.002621
+error: 0.002950
+error: 0.003469

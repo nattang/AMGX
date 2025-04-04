@@ -1,0 +1,74 @@
+{
+    "bumpy-cube": {
+        "num_rows": 19970,
+        "total_setup_time": 0.058222800000000005,
+        "total_solve_time": 0.021785,
+        "total_error": 0.040326
+    },
+    "bunnyhead": {
+        "num_rows": 1550,
+        "total_setup_time": 0.063888,
+        "total_solve_time": 0.021769010000000002,
+        "total_error": 15662.5621
+    },
+    "cloth": {
+        "num_rows": 900,
+        "total_setup_time": 0.0882339,
+        "total_solve_time": 0.01418652,
+        "total_error": 1922.731639
+    },
+    "cube": {
+        "num_rows": 8,
+        "total_setup_time": 0.01899111,
+        "total_solve_time": 0.0073845759999999995,
+        "total_error": 0.0
+    },
+    "diamond": {
+        "num_rows": 4,
+        "total_setup_time": 0.01804494,
+        "total_solve_time": 0.006696388,
+        "total_error": 0.0
+    },
+    "dragon": {
+        "num_rows": 10000,
+        "total_setup_time": 0.062082,
+        "total_solve_time": 0.02784197,
+        "total_error": 0.003028
+    },
+    "el_topo_sphere_1280": {
+        "num_rows": 642,
+        "total_setup_time": 0.0793497,
+        "total_solve_time": 0.010723836,
+        "total_error": 0.000117
+    },
+    "plane": {
+        "num_rows": 9,
+        "total_setup_time": 0.01905561,
+        "total_solve_time": 0.007638462,
+        "total_error": 0.016015
+    },
+    "plane_5": {
+        "num_rows": 25,
+        "total_setup_time": 0.019058699999999998,
+        "total_solve_time": 0.0077203540000000005,
+        "total_error": 0.065074
+    },
+    "sphere1": {
+        "num_rows": 26,
+        "total_setup_time": 0.0186963,
+        "total_solve_time": 0.00787738,
+        "total_error": 3e-06
+    },
+    "sphere3": {
+        "num_rows": 386,
+        "total_setup_time": 0.0848364,
+        "total_solve_time": 0.00823754,
+        "total_error": 0.001715
+    },
+    "torus": {
+        "num_rows": 4608,
+        "total_setup_time": 0.0825969,
+        "total_solve_time": 0.01085763,
+        "total_error": 0.003972
+    }
+}
